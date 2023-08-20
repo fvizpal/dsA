@@ -76,8 +76,8 @@ void preorder(Node* root){
         return;
     }
     cout << root -> data << " ";
-    preorder(root -> right);
     preorder(root -> left);
+    preorder(root -> right);
 }
 
 void postorder(Node* root){

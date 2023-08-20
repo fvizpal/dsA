@@ -5,7 +5,7 @@ sum of the longest bloodline of a tree
  we ll do this via recursion
 
 */
-voidsolve( Node* root, int sum , int &maxSum, int len, int &maxLen){
+void solve( Node* root, int sum , int &maxSum, int len, int &maxLen){
     //base case
     if( root == NULL){
         if( len > maxLen){
