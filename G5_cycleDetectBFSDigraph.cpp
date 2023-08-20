@@ -51,7 +51,7 @@ vector<int> topologicalSort( int v , int e, vector<vector<int>> &edges){
 
         //neighbour indegree update
         for( auto neighbour : adj[front]){
-            indegree[neighbour]--;
+            indegree[neighbour]--;      // why ??
             if( indegree[neighbour] == 0){
                 q.push(neighbour);
             }
