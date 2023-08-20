@@ -1,7 +1,11 @@
 /* o> Detect cycle in a Directed graph using BFS 
  we ll be taking help of inverse of TOPOLOGICAL SORT 
  using KAHN's algo 
- that is agar valid topo sort hai toh DAG hoga // htat is acyclic
+ that is agar valid topo sort hai toh DAG hoga // that is acyclic
+
+ *Topological sorting for Directed Acyclic Graph (DAG) is a linear ordering
+   of vertices such that for every directed edge u v, vertex u comes
+    before v in the ordering.
  
  // in a valid topo sort total nodes in the output wld be equal to number of nodes in graph
  // so we will check if the cnt is equal to number of nodes ; if equal then ACYCLIC else CYCLIC

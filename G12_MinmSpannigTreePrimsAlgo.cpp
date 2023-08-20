@@ -2,7 +2,7 @@
  when we convert a graph into tree such that there are n nodes and n-1 edges
  and every node is reachable by every other node 
  ab aise spanning tree ho toh bhut saare skte hain but the minimum wld be the one with the 
- minimum cost od weights i.e. edges oe jo weight hai usse sum kare toh minimum hona chahiye
+ minimum cost of weights i.e. edges ke jo weight hai usse sum kare toh minimum hona chahiye
 
 
  we need three data structures to do so

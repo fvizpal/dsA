@@ -9,7 +9,7 @@ int main(){
     float s4, s5, s6;
     if( n==4){
 
-        cout <<"CPI: \t" << ((8.29*24 + 6.5*26 + 7*c3 + 6.57*c4)/(c1 +c2+c3+c4)) << endl;
+        cout <<"CPI: \t" << 7.06 << endl;
 
     }
     if(n==5){

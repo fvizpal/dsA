@@ -8,7 +8,7 @@
  we will divide the array in two possible equal halves 
  even sized array will give equal halves but nit in odd sized
  now we will sort these halves then merge them 
- but how to merge 
+ but how to merge
  we shall lets say make a function that that takes the two arrays that are needed to be merged and a third array which will be the merged array
  say i , j & k are pointers to elements of left , right and final array 
  now compare elements in left and right and keep putting into final array,  and incrementing the pointer

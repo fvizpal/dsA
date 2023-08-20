@@ -50,6 +50,7 @@ vector<int> shortestPathInDAG(unordered_map<int, list<pair<int,int>>> adj, int n
       }
    }
 
+   // declaring a distance vector and initialising to inf
    vector<int> dist(n);
    for( int i = 0; i < n; i++){
       dist[i] = INT_MAX;

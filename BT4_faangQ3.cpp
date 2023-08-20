@@ -50,7 +50,7 @@ Node* lca(Node* root , int n1, int n2){
     //base case
     if( root == NULL){
         return NULL;
-    }
+    } 
     if( root -> data ==  n1 || root -> data ==n2){
         // bhai agar tu equal h n1 ya n2 ke toh return krde apne aap ko
         return root;

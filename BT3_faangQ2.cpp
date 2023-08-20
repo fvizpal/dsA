@@ -147,10 +147,10 @@ Vertical traversal of binary tree / vertical order traversal
   map<int, map<int, vector<int> > >
     horizontal distance  or level 
   
-
 */
 
 vector<int> verticalOrder( Node* root){
+       //hd     //lvl
     map<int , map<int, vector<int> > > nodes;
     queue< pair < node*, pair <int, int > > > q;
     vector<int> ans;
