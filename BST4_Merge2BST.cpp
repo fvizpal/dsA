@@ -77,6 +77,7 @@ Node* mergeBST( Node* root1, Node* root2){
 
 } // TC ans SC is O( m+n )
 // follow up: SC should be O( h1 + h2);
+
 // approach 2:
 //  step 1: root1 converted to a Sorted LL; ans root 2 as well
 
