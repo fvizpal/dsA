@@ -6,7 +6,7 @@
 
 
  we need three data structures to do so
- on would be key, MST and parent, inke indexes nodes ko darsha rhe hai
+ would be key, MST and parent, inke indexes nodes ko darsha rhe hai
 
  when at source that is the first element, make the key[0] = 0 too
  all others in key are inf for now
