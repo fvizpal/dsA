@@ -23,7 +23,6 @@
  we will prepare our ans DS that will store the tree
 
 */
- 
 //                u to v    weight  // ye dikha rha hai ki konsa int kya dikha rha hai
 vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<pair<int,int>, int>> &g){
     //creating adjacency list
@@ -33,6 +32,7 @@ vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<
         int u = g[i].first.first;
         int v = g[i].first.second;
         int w = g[i].second;
+        
         adj[u].push_back( make_pair(v,w));
         adj[v].push_back( make_pair(u,w));
     }
