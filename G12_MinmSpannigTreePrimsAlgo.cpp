@@ -6,7 +6,7 @@
 
 
  we need three data structures to do so
- would be key, MST and parent, inke indexes nodes ko darsha rhe hai
+ on would be key, MST and parent, inke indexes nodes ko darsha rhe hai
 
  when at source that is the first element, make the key[0] = 0 too
  all others in key are inf for now
@@ -23,6 +23,7 @@
  we will prepare our ans DS that will store the tree
 
 */
+ 
 //                u to v    weight  // ye dikha rha hai ki konsa int kya dikha rha hai
 vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<pair<int,int>, int>> &g){
     //creating adjacency list
@@ -32,28 +33,27 @@ vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<
         int u = g[i].first.first;
         int v = g[i].first.second;
         int w = g[i].second;
-        
         adj[u].push_back( make_pair(v,w));
         adj[v].push_back( make_pair(u,w));
     }
 
-    vector<int> key(n+1, INT_MAX);  // node ko index se darsha rahe hai
-    vector<bool> mst(n+1, false);
-    vector<int> parent(n+1, -1);
+    vector<int> key(n+1);  // node ko index se darsha rahe hai
+    vector<bool> mst(n+1);
+    vector<int> parent(n+1);
 
-    // for( int i = 0; i <= n; i++){
-    //     key[i] = INT_MAX;
-    //     parent[i] = -1;
-    //     mst[i] = false;
-    // }
+    for( int i = 0; i <= n; i++){
+        key[i] = INT_MAX;
+        parent[i] = -1;
+        mst[i] = false;
+    }
 
     //starting the algo
     key[1] = 0;      // key is holding minimum weigths
     parent[1] = -1;  
 
-    for( int i = 1; i <= n; i++){ // yahan minimum find krne ke liye MIN HEAP ka use kar skte that will reduce time complexity here
+    for( int i = 1; i < n; i++){ // yahan minimum find krne ke liye MIN HEAP ka use kar skte that will reduce time complexity here
         int mini = INT_MAX;
-        int u;   // ot store the minimum node
+        int u;   // the store for minimum node
         //finding the min wali node
         for( int v = 1; v <= n; v++){
             if( mst[v] == false && key[v] < mini){
