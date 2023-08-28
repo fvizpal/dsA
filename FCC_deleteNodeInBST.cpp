@@ -15,7 +15,6 @@ case 3: node with  2 children
  this is tricky
  coz we will loose elements if we link one but not the other 
  we wil deal with such by reducing case 3 to 2 the to 1
-
 */
 
 class Node* Delete(struct Node* root, int data){ // here data is the value to be deleted
@@ -51,6 +50,6 @@ class Node* Delete(struct Node* root, int data){ // here data is the value to be
         }
     }
 
-    return root; // we need to returnthsi root in all cases
+    return root; // we need to return this root in all cases
 }
 
