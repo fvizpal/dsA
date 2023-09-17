@@ -51,7 +51,7 @@ vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<
     key[1] = 0;      // key is holding minimum weigths
     parent[1] = -1;  
 
-    for( int i = 1; i < n; i++){ // yahan minimum find krne ke liye MIN HEAP ka use kar skte that will reduce time complexity here
+    for( int i = 1; i <= n; i++){ // yahan minimum find krne ke liye MIN HEAP ka use kar skte that will reduce time complexity here
         int mini = INT_MAX;
         int u;   // the store for minimum node
         //finding the min wali node
