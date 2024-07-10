@@ -1,7 +1,7 @@
 /*
 Bellman Ford Algorithm
  given DWG directed weighted graph
- negative weight bhi use ho skti hai 
+ negative weight bhi ho skti hai 
 
  par ham Dijkstras toh kar chuke hai ;; nhi ham usme nigative ke liye nih kar skte hain 
  negative weights ke case me ye wrong answer dega
@@ -31,7 +31,7 @@ int bellmanFord( int n, int src, int dest, vector<vector<int>> &edges){
 
     for( int i = 0; i <= n; i++){
         //traverse on edge list 
-        for( int j = 0; i < m ; j++){
+        for( int j = 0; j < m ; j++){
             int u = edges[i][0];
             int v = edges[i][1];
             int wt = edges[i][2];

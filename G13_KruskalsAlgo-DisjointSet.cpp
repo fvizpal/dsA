@@ -12,7 +12,7 @@
   Union by rank and path compression se iski implementaion kar skte hai
   
   ek rank ka array banaenge // or starting sabke rank 0 honge
-  jindo ka nodes ka union krna hai pehle uske parent dekhenge( sabse grand waale) fir unki(parent kki) rank dekhenge
+  jindo ka nodes ka union krna hai pehle uske parent dekhenge( sabse grand waale) fir unki(parent ki) rank dekhenge
   agar dono ki rank same hai toh kisiko kisike sath bhi attach kar skte hai as parent and child
 
   if rank of a is smaller than rank of b ; then b will be parent of a
@@ -20,7 +20,7 @@
   sath hi rank ko increment karenge of the node which has became parent
 
   agar path aise hai ki 7--> 6--> 4 toh 
-  sidhe 7 ko 1 se lagao 7--> 4
+  sidhe 7 ko 4 se lagao 7--> 4
   this is path compression
 
   agar check karna hai if two nodes lie in same component then check if there parent are same

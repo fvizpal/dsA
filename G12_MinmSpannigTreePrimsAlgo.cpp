@@ -1,6 +1,6 @@
 /* o> Prims algorithm
- when we convert a graph into tree such that there are n nodes and n-1 edges
- and every node is reachable by every other node 
+ when we convert a graph into tree such that there are n nodes and n-1 edges - a spannig tree
+ and every node is reachable by every other node // on more condn
  ab aise spanning tree ho toh bhut saare skte hain but the minimum wld be the one with the 
  minimum cost of weights i.e. edges ke jo weight hai usse sum kare toh minimum hona chahiye
 
@@ -10,15 +10,17 @@
 
  when at source that is the first element, make the key[0] = 0 too
  all others in key are inf for now
- and mark parent[0] = -1; 
+ and mark parent[all] = -1;
+
  1.
     iske baad key value array me minimum value nikalenge 
-    // to have the minimum weights requires for the problem
+    // to have the minimum weights required for the problem
  2.
     now mark it in mst as true;
  3.
     abb sare adjacent laane hai ; unke parent update karne hai ;
     unke sath ye process repeat krna hai 
+    
  after processing all the elements in this way // with the elements marked false only
  we will prepare our ans DS that will store the tree
 
@@ -47,14 +49,14 @@ vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<
         mst[i] = false;
     }
 
-    //starting the algo
-    key[1] = 0;      // key is holding minimum weigths
+    // starting the algo
+    key[1] = 0; // key is holding minimum weigths
     parent[1] = -1;  
 
     for( int i = 1; i <= n; i++){ // yahan minimum find krne ke liye MIN HEAP ka use kar skte that will reduce time complexity here
         int mini = INT_MAX;
-        int u;   // the store for minimum node
-        //finding the min wali node
+        int u; // the store for minimum node
+        // finding the min wali node
         for( int v = 1; v <= n; v++){
             if( mst[v] == false && key[v] < mini){
                 u = v;

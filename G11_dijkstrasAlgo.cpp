@@ -21,8 +21,8 @@ vector<int> dijkstra( vector<vector<int>> &vec, int vertices, int edges, int sou
         int v = vec[i][1];
         int w = vec[i][2];
 
-        adj[u].push_back(make_pair(u,w));
-        adj[v].push_back(make_pair(v,w));
+        adj[u].push_back(make_pair(v,w));
+        adj[v].push_back(make_pair(u,w));
     }
 
     //creation of ditance array with inf value initially
@@ -38,7 +38,7 @@ vector<int> dijkstra( vector<vector<int>> &vec, int vertices, int edges, int sou
     dist[source] = 0;
     st.insert(make_pair(0,source));
 
-    while( !s.empty()){
+    while( !st.empty()){
         //fetch top record
         auto top = *(st.begin());
 
@@ -52,7 +52,7 @@ vector<int> dijkstra( vector<vector<int>> &vec, int vertices, int edges, int sou
         for( auto neighbour: adj[topNode]){
             if( nodeDistance + neighbour.second < dist[neighbour.first]){
 
-                auto record = st.find(mak_pair(dist[neighbour.first],neighbour.first));
+                auto record = st.find(make_pair(dist[neighbour.first],neighbour.first));
                 //if record found then erase it 
                 if( record != st.end()){
                     st.erase(record);
