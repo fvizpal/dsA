@@ -30,7 +30,6 @@
     adjList ki zaroorat nhi hai 
     linear DS ki hai usme wt aur u & v  store krenge // u & v are node values
 
-    
 */
 
 //Minimum spanning tree
@@ -39,7 +38,7 @@ bool cmp(vector<int> &a, vector<int> &b){
     return a[2] < b[2];
 }
 
-//initialisation
+//-------initialisation
 void makeSet(vector<int> &parent, vector<int> &rank, int n){
     for( int i = 0; i < n; i++){
         parent[i] = i;
@@ -47,16 +46,17 @@ void makeSet(vector<int> &parent, vector<int> &rank, int n){
     }
 }
 
-//to find parent
+//-----------to find parent
 void findParent(vector<int> &parent, int node){
     if( parent[node] == node){ // jab khud ka hi parent aa jaye toh ruk jaana hai // heirarchy me oopar jarhe hai
         return node;
     }
 
+    // here we are eleminating the intermediate nodes between the node and parent
     return parent[node] = findParent(parent, parent[node]); // yha path compression hogya
 }
 
-//            jin 2 ka union
+//----------------jin 2 ka union
 void unionSet( int u , int v, vector<int> &parent, vector<int> &rank){
     u = findParent(parent, u);  // parent nikalaenge pehle
     v = findParent(parent, v);  // dono ke
@@ -75,7 +75,7 @@ void unionSet( int u , int v, vector<int> &parent, vector<int> &rank){
     }
 }
 
-//                        ye vo linear DS hai
+//--------------ye vo linear DS hai
 int minimumSpanningTree( vector<vector<int>> &edges, int n){
 
     sort(edges.begin(), edges.end(), cmp);  // sabse pehle sort karenge // wt ke basis pe 
@@ -83,6 +83,7 @@ int minimumSpanningTree( vector<vector<int>> &edges, int n){
     vector<int> parent(n);
     vector<int> rank(n);
     makeSet( parent, rank, n);  // initialse krne k liye func // initially every node is parent of itself
+    // and rank of every node is zero
 
     int minWeight = 0;
 

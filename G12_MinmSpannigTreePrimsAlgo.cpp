@@ -39,21 +39,15 @@ vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<
         adj[v].push_back( make_pair(u,w));
     }
 
-    vector<int> key(n+1);  // node ko index se darsha rahe hai
-    vector<bool> mst(n+1);
-    vector<int> parent(n+1);
-
-    for( int i = 0; i <= n; i++){
-        key[i] = INT_MAX;
-        parent[i] = -1;
-        mst[i] = false;
-    }
+    vector<int> key(n+1, INT_MAX);  // node ko index se darsha rahe hai
+    vector<bool> mst(n+1, -1);
+    vector<int> parent(n+1, false);
 
     // starting the algo
     key[1] = 0; // key is holding minimum weigths
-    parent[1] = -1;  
+    parent[1] = -1;
 
-    for( int i = 1; i <= n; i++){ // yahan minimum find krne ke liye MIN HEAP ka use kar skte that will reduce time complexity here
+    for( int i = 1; i <= n; i++) { // yahan minimum find krne ke liye MIN HEAP ka use kar skte that will reduce time complexity here
         int mini = INT_MAX;
         int u; // the store for minimum node
         // finding the min wali node
@@ -71,7 +65,7 @@ vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<
         for( auto it : adj[u]){
             int v = it.first;
             int w = it.second;
-            if( mst[v] == false && w < key[v]){
+            if( mst[v] == false && w < key[v]) {
                 parent[v] = u;
                 key[v] = w;
             }
