@@ -34,12 +34,8 @@
 
 //Minimum spanning tree
 
-bool cmp(vector<int> &a, vector<int> &b){
-    return a[2] < b[2];
-}
-
 //-------initialisation
-void makeSet(vector<int> &parent, vector<int> &rank, int n){
+void makeSet(vector<int> &parent, vector<int> &rank, int n) {
     for( int i = 0; i < n; i++){
         parent[i] = i;
         rank[i] = 0;
@@ -47,7 +43,7 @@ void makeSet(vector<int> &parent, vector<int> &rank, int n){
 }
 
 //-----------to find parent
-void findParent(vector<int> &parent, int node){
+void findParent(vector<int> &parent, int node) {
     if( parent[node] == node){ // jab khud ka hi parent aa jaye toh ruk jaana hai // heirarchy me oopar jarhe hai
         return node;
     }
@@ -57,7 +53,7 @@ void findParent(vector<int> &parent, int node){
 }
 
 //----------------jin 2 ka union
-void unionSet( int u , int v, vector<int> &parent, vector<int> &rank){
+void unionSet( int u , int v, vector<int> &parent, vector<int> &rank) {
     u = findParent(parent, u);  // parent nikalaenge pehle
     v = findParent(parent, v);  // dono ke
 
@@ -69,20 +65,28 @@ void unionSet( int u , int v, vector<int> &parent, vector<int> &rank){
         parent[v] = u;
     }
     
-    else{           // equal rank
-        parent[v] = u;
+    else{           // equal rank // you can make any one as node and the other as child
+        parent[v] = u; // make sure to increment rank
         rank[u]++;  // jisko parent banaenge uski rank incremented
     }
 }
-
 //--------------ye vo linear DS hai
-int minimumSpanningTree( vector<vector<int>> &edges, int n){
+// ----------------------- end of union rank function
+
+// ------------- KRUSKAL's ALGORITHM
+bool cmp(vector<int> &a, vector<int> &b){
+    return a[2] < b[2];
+}
+int minimumSpanningTree( vector<vector<int>> &edges, int n) {
+    
+    // no need of adjacency list
 
     sort(edges.begin(), edges.end(), cmp);  // sabse pehle sort karenge // wt ke basis pe 
 
     vector<int> parent(n);
     vector<int> rank(n);
-    makeSet( parent, rank, n);  // initialse krne k liye func // initially every node is parent of itself
+    makeSet( parent, rank, n);  // initialse krne k liye func 
+    // initially every node is parent of itself
     // and rank of every node is zero
 
     int minWeight = 0;
@@ -100,6 +104,6 @@ int minimumSpanningTree( vector<vector<int>> &edges, int n){
 
     return minWeight;
 }
-// TC is O( m*logm )
+// TC is O( m * logm )
 // find parent function ka TC nearly constant hota hai
 // similarly of union

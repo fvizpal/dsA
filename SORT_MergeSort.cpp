@@ -32,3 +32,51 @@
  . 
 
 */
+
+class Solution {
+public:
+
+    void merge(vector<int>& arr, int low, int mid, int high) {
+        vector<int> temp;
+        int left = low; // start index of left half of arr;
+        int right = mid + 1; // start index of right half of arr;
+
+        while(left <= mid && right <= high) {
+            if(arr[left] <= arr[right]) {
+                temp.push_back(arr[left]);
+                left++;
+            }
+            else {
+                temp.push_back(arr[right]);
+                right++;
+            }
+        }
+
+        //if left elements are still left;
+        while(left <= mid) {
+            temp.push_back(arr[left++]);
+        }
+        //if left elements are still right;
+        while(right <= high) {
+            temp.push_back(arr[right++]);
+        }
+
+        //transfer from temp to original arr;
+        for(int i = low; i <= high; i++) {
+            arr[i] = temp[i - low];
+        }
+    }
+    
+    void mergeSort(vector<int>& arr, int low, int high) {
+        if(low < high) {
+            int mid = (low + high) / 2;
+            mergeSort(arr, low, mid);
+            mergeSort(arr, mid + 1, high);
+            merge(arr, low, mid, high);
+        }
+    }
+    vector<int> sortArray(vector<int>& nums) {
+        mergeSort(nums, 0, nums.size() - 1);
+        return nums;
+    }
+};

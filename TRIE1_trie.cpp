@@ -1,8 +1,8 @@
 
 class TrieNode{
     public:
-    char data;
-    TrieNode* children[26]; // because this is for alphabets
+    char val;
+    TrieNode* children[26]; // because this is for alphabets // can be for other too
     bool isterminal;
 
     TrieNode(char ch){
@@ -12,22 +12,21 @@ class TrieNode{
         }
         isterminal = false;
     }
-
 };
 
 class Trie{
     public:
-    TrieNode * root;
+    TrieNode* root;
 
     //the constructor
-    Trie() {
+    Trie () {
         root = new TrieNode('\0'); // i.e. starting our root from a NULL character
     }
 
-    void insertUtil( TrieNode* root, string word ){
+    void insertUtil (TrieNode* root, string word ){
         // base case
-        if(word.length() == 0){
-            root -> isTerminal = true;
+        if (word.length() == 0){
+            root->isTerminal = true;
         }
 
         // assuming all letters are capital
@@ -35,25 +34,26 @@ class Trie{
         TrieNode* child;
 
         //present
-        if( root -> children[index] != NULL){
-            child = root -> children[index]; //bs aage bad jaao
+        if (root->children[index] != NULL){
+            child = root->children[index]; //bs aage bad jaao
         }
-        else{
+        else {
             //absent
             child = new TrieNode(word[0]); // make new if absent
-            root -> children[index] = child; 
+            root->children[index] = child; 
         }
 
         //recursion
-        insertUtil(child, word.substr(1));
+        insertUtil (child, word.substr(1));
     }
-    void insertWord(string word){
-        insertUtil(root, word);
+    
+    void insertWord (string word){
+        insertUtil (root, word);
     }
 
-    bool searchutil(TrieNode* root , string word){
+    bool searchutil (TrieNode* root , string word){
         // base case
-        if(word.length() == 0){
+        if (word.length() == 0){
             return root -> isTerminal 
         } // FOR PREFIX SEARCH return here simply TRUE since we do not need to go till terminal
 
@@ -61,10 +61,10 @@ class Trie{
         TrieNode* child;
 
         // if present case
-        if( root-> children[index] != NULL){
+        if (root-> children[index] != NULL){
             child = root -> children[index];
         }
-        else{
+        else {
             // absent case
             return false; 
         }
