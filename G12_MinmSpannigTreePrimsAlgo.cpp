@@ -1,5 +1,5 @@
 /* o> Prims algorithm
- when we convert a graph into tree such that there are n nodes and n-1 edges - a spannig tree
+ when we convert a graph into tree such that there are n nodes and n-1 edges - a spanning tree
  and every node is reachable by every other node // on more condn
  ab aise spanning tree ho toh bhut saare skte hain but the minimum wld be the one with the 
  minimum cost of weights i.e. edges ke jo weight hai usse sum kare toh minimum hona chahiye

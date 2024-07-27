@@ -6,7 +6,7 @@ class TrieNode{
     bool isterminal;
 
     TrieNode(char ch){
-        data = ch;
+        val = ch;
         for( int i = 0; i< 26; i++){
             children[i] = NULL;
         }
