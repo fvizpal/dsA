@@ -1,85 +1,69 @@
 
-class TrieNode{
+class TrieNode {
     public:
-    char val;
-    TrieNode* children[26]; // because this is for alphabets // can be for other too
-    bool isterminal;
 
-    TrieNode(char ch){
+    int val;
+    vector<TrieNode*> childs;
+    bool isTerminal;
+
+    TrieNode(char ch) {
         val = ch;
-        for( int i = 0; i< 26; i++){
-            children[i] = NULL;
-        }
-        isterminal = false;
+        childs.resize(26, nullptr);
+        isTerminal = false;
     }
 };
-
-class Trie{
-    public:
-    TrieNode* root;
-
-    //the constructor
-    Trie () {
-        root = new TrieNode('\0'); // i.e. starting our root from a NULL character
+class Trie {
+public:
+TrieNode* root;
+    Trie() {
+        root = new TrieNode('\0');
     }
 
-    void insertUtil (TrieNode* root, string word ){
-        // base case
-        if (word.length() == 0){
-            root->isTerminal = true;
+    void insertUtil(TrieNode* node, string s) {
+        if(s.size() == 0) {
+            node->isTerminal = true;
         }
 
-        // assuming all letters are capital
-        int index = word[0] - 'A';
         TrieNode* child;
+        int ind = s[0] - 'a';
 
-        //present
-        if (root->children[index] != NULL){
-            child = root->children[index]; //bs aage bad jaao
+        if(node->childs[ind] == nullptr) {
+            child = new TrieNode(s[0]);
+            node->childs[ind] = child;
         }
         else {
-            //absent
-            child = new TrieNode(word[0]); // make new if absent
-            root->children[index] = child; 
+            child = node->childs[ind];
         }
 
-        //recursion
-        insertUtil (child, word.substr(1));
+        insertUtil(child, s.substr(1));
     }
-    
-    void insertWord (string word){
-        insertUtil (root, word);
+    void insert(string s) {
+        insertUtil(root, s);
     }
 
-    bool searchutil (TrieNode* root , string word){
-        // base case
-        if (word.length() == 0){
-            return root -> isTerminal 
-        } // FOR PREFIX SEARCH return here simply TRUE since we do not need to go till terminal
+    bool searchUtil(TrieNode* node, string s, bool isPrefix = false) {
+        if(s.size() == 0) {
+            if(isPrefix) return true;
+            return node->isTerminal;
+        }
 
-        int index = word[0] - 'A';
         TrieNode* child;
+        int ind = s[0] - 'a';
 
-        // if present case
-        if (root-> children[index] != NULL){
-            child = root -> children[index];
-        }
-        else {
-            // absent case
-            return false; 
+        if(node->childs[ind] == nullptr) {
+            return false;
         }
 
-        // recursive call
-        return searchUtil(child, word.substr(1));
+        child = node->childs[ind];
+        searchUtil(child, s.substr(1), isPrefix);
+    }
+    bool search(string s) {
+        searchUtil(root, s);
     }
 
-    bool searchWord(string word){
-        return searchutil(root , word);
+    bool prefix() {
+        return searchUtil(root, s, true);
     }
-
-    // implement a starts with function too // input is a prefix and output bool if
-    // there is a milta julta word
-
 };
 // TC in insertion will be O( l ) where l is length of word
 // in removing a word TC is O( l )
