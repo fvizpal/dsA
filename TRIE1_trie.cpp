@@ -61,7 +61,7 @@ TrieNode* root;
         searchUtil(root, s);
     }
 
-    bool prefix() {
+    bool prefix(string s) {
         return searchUtil(root, s, true);
     }
 };

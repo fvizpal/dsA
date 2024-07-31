@@ -17,7 +17,7 @@
 
 */
 int findPosition( vector<int> inorder, int element){ // yha optimisation kar skte hai pehle se ek map banake bw index and inorder elements
-    for( int i == 0; i < inorder.size(); i++){
+    for( int i = 0; i < inorder.size(); i++){
         if( element == inorder[i]){
             return i;
         }
@@ -54,7 +54,11 @@ Node* buildTree(vector<int> preorder, vector<int> inorder){
 }
 
 // given INORDER AND POSTORDER
-TreeNode* solve(vector<int> &postorder, int &ind, int left, int right, unordered_map<int,int> &nodeind){
+TreeNode* solve(
+                vector<int> &postorder, 
+                int &ind, int left, int right, 
+                unordered_map<int,int> &nodeind
+    ){
 
     if( ind < 0 || left > right){
         return nullptr;
@@ -76,5 +80,5 @@ TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
         nodeind[inorder[i]] = i;
     }
     int ind = postorder.size() - 1;
-    return solve( postorder,ind, 0, inorder.size() - 1 , nodeind);
+    return solve(postorder, ind, 0, inorder.size() - 1, nodeind);
 }

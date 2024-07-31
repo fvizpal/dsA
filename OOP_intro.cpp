@@ -83,12 +83,20 @@ int Hero::timeToComplete = 5;
 int main() {
 
     //cout << Hero::timeToComplete << endl;
+    // a static function 
+    // they do not have this keyword pointer
+    // it can access static members only
     cout << Hero::random() << endl;
+
+
+
 
     // Hero a;
 
     // cout << a.timeToComplete << endl;
-
+    // but calling it this way is not recommended
+    // recommended is 
+    // cout << Hero::timeToComplete << endl;
 
     // Hero b;
     // b.timeToComplete = 10 ;
@@ -111,6 +119,9 @@ int main() {
 
 //     hero1.setHealth(12);
 //     hero1.setLevel('D');
+
+//      depp copy | shallow copy ??
+
 //     char name[7] = "Babbar";
 //     hero1.setName(name);
 
@@ -185,6 +196,8 @@ int main() {
 
     // //cout << "size : " << sizeof(h1) << endl;
 
+
+    // getter | setter defintition sdekh lena
 
     return 0;
 }
