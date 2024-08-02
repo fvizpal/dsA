@@ -1,6 +1,10 @@
 #include<iostream>
 using namespace std;
 
+
+// https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbU55Q0xLSE52S1ZXa3dldU1YR3FVUXl2SHp0UXxBQ3Jtc0ttSTJYbUczOWU0NUZySzBSWjdMblphTl81WGhJTHZIenJMTkI3LXRRbjFEek9iUTVmdHp1LVFSNV9vbU9Eei1ubE5IdHNBejIwc0llaVRKQkM5ZXNqMTJoWDE3b0dFOGY5OUZ3X3gxWVVySXZkRmxFQQ&q=https%3A%2F%2Fwww.codingninjas.com%2Fcodestudio%2Fguided-paths%2Fbasics-of-c%2Fcontent%2F118817%2Foffering%2F1382190&v=i_5pvt7ag7E
+
+
 class Hero {
     
     //properties
