@@ -47,7 +47,7 @@ vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<
     key[1] = 0; // key is holding minimum weigths
     parent[1] = -1;
 
-    for( int i = 1; i <= n; i++) { // yahan minimum find krne ke liye MIN HEAP ka use kar skte that will reduce time complexity here
+    for(int i = 1; i <= n; i++) { // yahan minimum find krne ke liye MIN HEAP ka use kar skte that will reduce time complexity here
         int mini = INT_MAX;
         int u; // the store for minimum node
         // finding the min wali node
@@ -62,7 +62,7 @@ vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<
         mst[u] = true;
 
         //check its adjacent nodes
-        for( auto it : adj[u]){
+        for( auto it : adj[u]) {
             int v = it.first;
             int w = it.second;
             if( mst[v] == false && w < key[v]) {
@@ -73,7 +73,7 @@ vector<pair<pair<int, int>, int>> calculatePrimeMST( int n , int m, vector<pair<
     }
 
     vector<pair<pair<int,int>,int>> result;     // 2 se isliye chala rhe kyuki 1 ka parent toh -1 hai
-    for( int i = 2; i <= n; i++){              // ye result kese prepare kara jaa rha hai smjh nhi ayaa
+    for(int i = 2; i <= n; i++){              // ye result kese prepare kara jaa rha hai smjh nhi ayaa
         result.push_back({{parent[i], i}, key[i]});
     }
 

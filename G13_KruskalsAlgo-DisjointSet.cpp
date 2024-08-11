@@ -29,7 +29,6 @@
   KRUSKAL'S ALGO
     adjList ki zaroorat nhi hai 
     linear DS ki hai usme wt aur u & v  store krenge // u & v are node values
-
 */
 
 //Minimum spanning tree
@@ -107,3 +106,46 @@ int minimumSpanningTree( vector<vector<int>> &edges, int n) {
 // TC is O( m * logm )
 // find parent function ka TC nearly constant hota hai
 // similarly of union
+
+
+// from LEETCODE
+class DSU {
+public:
+    DSU(int size) {
+        parent.resize(size);
+        rank.resize(size, 0);
+        for (int i = 0; i < size; ++i) {
+            parent[i] = i;
+        }
+    }
+
+    int find(int node) {
+        if (parent[node] != node) {
+            parent[node] = find(parent[node]);
+        }
+        return parent[node];
+    }
+
+    bool unionSets(int x, int y) {
+        int xr = find(x);
+        int yr = find(y);
+        if (xr == yr) {
+            return false;
+        } 
+        else if (rank[xr] < rank[yr]) {
+            parent[xr] = yr;
+        } 
+        else if (rank[xr] > rank[yr]) {
+            parent[yr] = xr;
+        } 
+        else {
+            parent[yr] = xr;
+            rank[xr]++;
+        }
+        return true;
+    }
+
+private:
+    vector<int> parent;
+    vector<int> rank;
+};
