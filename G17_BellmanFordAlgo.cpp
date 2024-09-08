@@ -34,6 +34,7 @@ Bellman Ford Algorithm
 int bellmanFord( int n, int src, int dest, vector<vector<int>> &edges){
 
     vector<int> dist(n+1, 1e9);
+    int m = edges.size();
     dist[src] = 0;
 
     for( int i = 0; i <= n; i++) {

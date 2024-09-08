@@ -69,3 +69,42 @@ vector<int> dijkstra( vector<vector<int>> &vec, int vertices, int edges, int sou
 }
 // TC O( E*logV )
 // SC O( E + V )
+
+// ----------WITH PQ
+void Graph::shortestPath(int src) {
+    // Create a priority queue to store vertices being processed
+    // Priority queue sorted by the first element of the pair (distance)
+    priority_queue<iPair, vector<iPair>, greater<iPair>> pq;
+
+    // Create a vector to store distances and initialize all distances as INF
+    vector<int> dist(V, INF);
+
+    // Insert source into priority queue and initialize its distance as 0
+    pq.push(make_pair(0, src));
+    dist[src] = 0;
+
+    // Process the priority queue
+    while (!pq.empty()) {
+        // Get the vertex with the minimum distance
+        int u = pq.top().second;
+        pq.pop();
+
+        // Iterate through all adjacent vertices of the current vertex
+        for (auto &neighbor : adj[u]) {
+            int v = neighbor.first;
+            int weight = neighbor.second;
+
+            // If a shorter path to v is found
+            if (dist[v] > dist[u] + weight) {
+                // Update distance and push new distance to the priority queue
+                dist[v] = dist[u] + weight;
+                pq.push(make_pair(dist[v], v));
+            }
+        }
+    }
+
+    // Print the shortest distances
+    cout << "Vertex Distance from Source" << endl;
+    for (int i = 0; i < V; ++i)
+        cout << i << " \t\t " << dist[i] << endl;
+}
